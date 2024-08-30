@@ -32,15 +32,11 @@ function init(){
     for (let i = 1; i < 8; i++) {
         hand.push(deckCur.pop());
         // Make sure the image paths are correct
-        document.getElementById("deck" + i).src = "/Web-Games/Uno/media/img/" + hand[i] + ".png";
     }
-    
-    // Set the initial image
-    const image = document.getElementById("image");
-    image.src = "/Web-Games/Uno/media/img/0B.png";
     
     // Update the demo element with the current hand
     document.getElementById("demo").innerHTML = hand.join(", ");
+    document.getElementById("deck" + i).src = "/Web-Games/Uno/media/img/" + hand[i] + ".png";
 }
 
 // Ensure the DOM is fully loaded before running the main function
