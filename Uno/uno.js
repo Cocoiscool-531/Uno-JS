@@ -43,5 +43,6 @@ createDeck();
 shuffle(deckCur);
 for(let i = 0; i < 7; i++){
     hand.push(deckCur.pop());
-    document.getElementById("deck"+i).src = "/Web-Games/Uno/media/img/"+hand[i]+".png"
+    document.getElementById("deck"+i).src = "/Web-Games/Uno/media/img/"+hand[i]+".png";
 }
+document.getElementById("deck1").src = "/Web-Games/Uno/media/img/0A.png";
