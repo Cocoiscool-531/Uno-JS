@@ -21,7 +21,7 @@ function shuffle(array) {
       array[randomIndex], array[currentIndex]];
   }
 }
-async function main(){
+function main(){
     createDeck();
     shuffle(deckCur);
     document.getElementById("demo").innerHTML = deckCur;
