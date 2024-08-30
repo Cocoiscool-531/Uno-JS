@@ -4,6 +4,7 @@ const hexAbc = [
 const deckCur = [];
 const deckStd = [];
 const hand = [];
+let discard = "";
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 function shuffle(array) {
@@ -21,6 +22,20 @@ function shuffle(array) {
       array[randomIndex], array[currentIndex]];
   }
 }
+function refreshHand(){
+    document.getElementById("demo").innerHTML = hand.join(", ") + ":" + discard;
+    for (let i = 1; i < 8; i++) {
+        document.getElementById("hand"+i).src = "/Uno/media/img/" + hand[i-1] + ".png";
+    }
+}
+
+function playCard(handIndex){
+    if(document.getElementById("hand"+handIndex).src != "/Uno/media/img/undefined.png"){
+        discard = hand.splice(handIndex, 1);
+        refreshHand();
+    }
+}
+
 function init(){
     createDeck();
     shuffle(deckCur);
@@ -33,10 +48,8 @@ function init(){
         hand.push(deckCur.pop());
         // Make sure the image paths are correct
     }
-    
-    // Update the demo element with the current hand
-    document.getElementById("demo").innerHTML = hand.join(", ");
-    document.getElementById("deck" + i).src = "/Web-Games/Uno/media/img/" + hand[i] + ".png";
+    discard = deckCur.pop();
+    refreshHand();
 }
 
 // Ensure the DOM is fully loaded before running the main function
