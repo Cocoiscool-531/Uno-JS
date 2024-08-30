@@ -41,4 +41,3 @@ async function createDeck(){
 
 createDeck();
 shuffle(deckCur);
-
