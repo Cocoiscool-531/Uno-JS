@@ -7,13 +7,18 @@ This is my repository where i will be learning JavaScript and making some web ga
 # Uno
 Simple JavaScript project to run UNO on github pages.
 
+
 **Currenty Working:**
-N/A
-**Working On:**
+
 Deck system
+
+**Working On:**
+
 Card Dealing
 Card Playing
+
 **Coming Soon:**
+
 Special Cards
 Online Play
 AI Opponent
