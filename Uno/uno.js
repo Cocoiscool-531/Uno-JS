@@ -3,6 +3,7 @@ const hexAbc = [
 ];
 const deckCur = [];
 const deckStd = [];
+const hand = [];
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 function shuffle(array) {
@@ -35,8 +36,9 @@ async function createDeck(){
             }
         }
     }
+    document.getElementById("demo").innerHTML = "Deck Created";
 }
 
 createDeck();
 shuffle(deckCur);
-document.getElementById("demo").innerHTML = deckCur;
+
