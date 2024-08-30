@@ -41,3 +41,6 @@ async function createDeck(){
 
 createDeck();
 shuffle(deckCur);
+for(let i = 0; i < 7; i++){
+    hand += deckCur.pop();
+}
