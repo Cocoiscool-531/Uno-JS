@@ -21,7 +21,19 @@ function shuffle(array) {
       array[randomIndex], array[currentIndex]];
   }
 }
-async function createDeck(){
+async function main(){
+    createDeck();
+    shuffle(deckCur);
+    document.getElementById("demo").innerHTML = deckCur;
+    for(let i = 0; i < 7; i++){
+        hand.push(deckCur.pop());
+        document.getElementById("deck"+i).src = "/Web-Games/Uno/media/img/"+hand[i]+".png";
+    }
+    document.getElementById("deck1").src = "/Web-Games/Uno/media/img/0A.png";
+    document.getElementById("demo").innerHTML = hand;
+}
+
+function createDeck(){
     for(let i = 0; i < 4; i++){
         deckCur.push("4D", "4E");
     }
@@ -38,13 +50,3 @@ async function createDeck(){
     }
     document.getElementById("demo").innerHTML = "Deck Created";
 }
-
-createDeck();
-shuffle(deckCur);
-document.getElementById("demo").innerHTML = deckCur;
-for(let i = 0; i < 7; i++){
-    hand.push(deckCur.pop());
-    document.getElementById("deck"+i).src = "/Web-Games/Uno/media/img/"+hand[i]+".png";
-}
-document.getElementById("deck1").src = "/Web-Games/Uno/media/img/0A.png";
-document.getElementById("demo").innerHTML = hand;
