@@ -21,19 +21,30 @@ function shuffle(array) {
       array[randomIndex], array[currentIndex]];
   }
 }
-function main(){
+function init(){
     createDeck();
     shuffle(deckCur);
-    document.getElementById("demo").innerHTML = deckCur;
-    for(let i = 0; i < 7; i++){
+    
+    // Update the demo element with shuffled deck
+    document.getElementById("demo").innerHTML = deckCur.join(", ");
+    
+    // Deal 7 cards into the hand
+    for (let i = 0; i < 7; i++) {
         hand.push(deckCur.pop());
-        document.getElementById("deck"+i).src = "/Web-Games/Uno/media/img/"+hand[i]+".png";
+        // Make sure the image paths are correct
+        document.getElementById("deck" + i).src = "/Web-Games/Uno/media/img/" + hand[i] + ".png";
     }
-    const image = document.getElementById("image")
-    image.src = "/Web-Games/Uno/media/img/0B"
-    document.getElementById("deck1").src = "/Web-Games/Uno/media/img/0A.png";
-    document.getElementById("demo").innerHTML = hand;
+    
+    // Set the initial image
+    const image = document.getElementById("image");
+    image.src = "/Web-Games/Uno/media/img/0B.png";
+    
+    // Update the demo element with the current hand
+    document.getElementById("demo").innerHTML = hand.join(", ");
 }
+
+// Ensure the DOM is fully loaded before running the main function
+document.addEventListener("DOMContentLoaded", main);
 
 function createDeck(){
     for(let i = 0; i < 4; i++){
