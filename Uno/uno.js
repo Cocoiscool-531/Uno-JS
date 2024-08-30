@@ -42,6 +42,6 @@ async function createDeck(){
 createDeck();
 shuffle(deckCur);
 for(let i = 0; i < 7; i++){
-    hand += deckCur.pop();
+    hand.push(deckCur.pop());
     document.getElementById("deck"+i).innerHTML = "/media/img/"+hand[i]+".png"
 }
