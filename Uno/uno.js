@@ -29,6 +29,8 @@ async function main(){
         hand.push(deckCur.pop());
         document.getElementById("deck"+i).src = "/Web-Games/Uno/media/img/"+hand[i]+".png";
     }
+    const image = document.getElementById("image")
+    image.src = "/Web-Games/Uno/media/img/0B"
     document.getElementById("deck1").src = "/Web-Games/Uno/media/img/0A.png";
     document.getElementById("demo").innerHTML = hand;
 }
