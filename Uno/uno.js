@@ -29,7 +29,7 @@ function init(){
     document.getElementById("demo").innerHTML = deckCur.join(", ");
     
     // Deal 7 cards into the hand
-    for (let i = 0; i < 7; i++) {
+    for (let i = 1; i < 8; i++) {
         hand.push(deckCur.pop());
         // Make sure the image paths are correct
         document.getElementById("deck" + i).src = "/Web-Games/Uno/media/img/" + hand[i] + ".png";
@@ -44,7 +44,7 @@ function init(){
 }
 
 // Ensure the DOM is fully loaded before running the main function
-document.addEventListener("DOMContentLoaded", main);
+document.addEventListener("DOMContentLoaded", init);
 
 function createDeck(){
     for(let i = 0; i < 4; i++){
