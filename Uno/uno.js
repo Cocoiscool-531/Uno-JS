@@ -5,6 +5,8 @@ const deckCur = [];
 const deckStd = [];
 const hand = [];
 let discard = "";
+let discardColor = 0;
+let discardNumber = 0;
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 function shuffle(array) {
@@ -24,8 +26,8 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 function refreshHand(){
-    const discardColor = parseInt(discard.charAt(0));
-    const discardNumber = hexAbc.indexOf(discard.charAt(1));
+    discardColor = parseInt(discard.charAt(0));
+    discardNumber = hexAbc.indexOf(discard.charAt(1));
     
     document.getElementById("header").innerHTML = "Can Play: " + colors[discardColor] + " " + numbers[discardNumber];
     
@@ -62,7 +64,13 @@ function drawCard(){
 
 function playCard(handIndex){
     console.log("playCard init card at index " + handIndex);
-    if(handIndex < hand.length){
+    if(
+        handIndex < hand.length &&
+        hand[handIndex].charAt(0) == discardColor ||
+        hand[handIndex].charAt(0) == 4 ||
+        hand[handIndex].charAt(1) == discardNumber 
+    ){
+        
         console.log("played card at index " + handIndex);
         discard = hand.splice(handIndex, 1)[0];
         refreshHand();
