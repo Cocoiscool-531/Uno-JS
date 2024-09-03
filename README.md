@@ -8,18 +8,19 @@ This is my repository where i will be learning JavaScript and making some web ga
 Simple JavaScript project to run UNO on github pages.
 
 
-**Currenty Working:**
+**Currenty Functional:**
 
 Deck system
+Card Dealing
 
 **Working On:**
 
-Card Dealing
 Card Playing
 
 **Coming Soon:**
 
-Special Cards
+Discard and Deck piles
+Cards Doing Things
 Online Play
 AI Opponent
 More Decks
