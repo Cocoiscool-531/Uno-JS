@@ -5,8 +5,8 @@ const deckCur = [];
 const deckStd = [];
 const hand = [];
 let discard = "";
-let discardColor = 0;
-let discardNumber = 0;
+let discardColor;
+let discardNumber;
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 function shuffle(array) {
@@ -32,7 +32,7 @@ function refreshHand(){
     document.getElementById("header").innerHTML = "Can Play: " + colors[discardColor] + " " + numbers[discardNumber];
     
     const imageContainer = document.getElementById("imageContainer");
-    imageContainer.innerHTML = ""; // Clear existing images
+    imageContainer.innerHTML = "";
 
     hand.forEach((card, index) => {
         const img = document.createElement("img");
@@ -63,15 +63,13 @@ function drawCard(){
 }
 
 function playCard(handIndex){
-    console.log("playCard init card at index " + handIndex);
+    let currentCard = hand[handIndex];
     if(
         handIndex < hand.length &&
-        hand[handIndex].charAt(0) == discardColor ||
-        hand[handIndex].charAt(0) == 4 ||
-        hand[handIndex].charAt(1) == discardNumber 
+        currentCard.charAt(0) == discardColor ||
+        currentCard.charAt(0) == 4 ||
+        currentCard.charAt(1) == hexAbc.indexOf(discardNumber)
     ){
-        
-        console.log("played card at index " + handIndex);
         discard = hand.splice(handIndex, 1)[0];
         refreshHand();
     }
