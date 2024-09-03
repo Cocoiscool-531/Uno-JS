@@ -24,7 +24,7 @@ function shuffle(array) {
 }
 function refreshHand(){
     document.getElementById("demo").innerHTML = hand.join(", ") + ":" + discard;
-    for (let i = 1; i < 8; i++) {
+    for (let i = 0; i < 15; i++) {
         document.getElementById("hand"+i).src = "/Web-Games/Uno/media/img/" + hand[i-1] + ".png";
     }
 }
@@ -44,7 +44,7 @@ function init(){
     document.getElementById("demo").innerHTML = deckCur.join(", ");
     
     // Deal 7 cards into the hand
-    for (let i = 1; i < 8; i++) {
+    for (let i = 0; i < 7; i++) {
         hand.push(deckCur.pop());
         // Make sure the image paths are correct
     }
