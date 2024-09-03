@@ -1,6 +1,6 @@
-const hexAbc = [
-    "0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"
-];
+const hexAbc = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+const numbers = ["0","1","2","3","4","5","6","7","8","9","Skip","Reverse","+2","","+4", ""]
+const colors = ["Red", "Yellow", "Blue", "Green", "Wild"]
 const deckCur = [];
 const deckStd = [];
 const hand = [];
@@ -20,17 +20,50 @@ function shuffle(array) {
       array[randomIndex], array[currentIndex]];
   }
 }
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 function refreshHand(){
-    document.getElementById("demo").innerHTML = hand.join(", ") + ":" + discard;
-    for (let i = 0; i < 15; i++) {
-        document.getElementById("hand"+i).src = "Uno/media/img/" + hand[i] + ".png";
+    const discardColor = parseInt(discard.charAt(0));
+    const discardNumber = hexAbc.indexOf(discard.charAt(1));
+    
+    document.getElementById("header").innerHTML = "Can Play: " + colors[discardColor] + " " + numbers[discardNumber];
+    
+    const imageContainer = document.getElementById("imageContainer");
+    imageContainer.innerHTML = ""; // Clear existing images
+
+    hand.forEach((card, index) => {
+        const img = document.createElement("img");
+        img.src = "media/img/" + card + ".png";
+        img.id = "hand" + index;
+        img.className = "card";
+        img.onclick = () => playCard(index);
+        if (img.src.includes("/media/img/undefined.png")) {
+            img.classList.add("hidden");
+        } else {
+            img.classList.remove("hidden");
+        }
+        imageContainer.appendChild(img);
+    });
+
+    // Update the discard image
+    const discardImg = document.getElementById("discardImg");
+    discardImg.src = "media/img/" + discard + ".png";
+}
+
+function drawCard(){
+    console.log("drawCard init");
+    if(deckCur.length > 0){
+        console.log("drawCard drawing");
+        hand.push(deckCur.pop());
+        refreshHand();
     }
 }
 
 function playCard(handIndex){
-    console.warn("playCard init card at index " + handIndex);
-    if(document.getElementById("hand"+handIndex).src != "/Uno/media/img/undefined.png"){
-        console.warn("played card at index " + handIndex);
+    console.log("playCard init card at index " + handIndex);
+    if(handIndex < hand.length){
+        console.log("played card at index " + handIndex);
         discard = hand.splice(handIndex, 1)[0];
         refreshHand();
     }
@@ -40,24 +73,27 @@ function init(){
     createDeck();
     shuffle(deckCur);
     
-    document.getElementById("demo").innerHTML = deckCur.join(", ");
+    document.getElementById("header").innerHTML = deckCur.join(", ");
     
     console.log("Dealing Hand");
     for (let i = 0; i < 7; i++) {
         hand.push(deckCur.pop());
     }
-    discard = deckCur.pop();
+
+    discard+=getRandomInt(4).toString();
+    discard+=getRandomInt(10).toString();
+
+    deckCur.splice(deckCur.indexOf(discard), 1);
+    
     refreshHand();
 }
 
 function createDeck(){
-    for(let i = 0; i < 4; i++){
-        deckCur.push("4D", "4E");
-    }
     
     console.log("Deck Creating");
     for(let i = 0; i < 4; i++){
-        for(let j = 0; j < 13; j++){
+        deckCur.push(i+"0")
+        for(let j = 1; j < 13; j++){
             for(let k = 0; k < 2; k++){
                 char1 = i.toString();
                 char2 = hexAbc[j];
@@ -66,8 +102,9 @@ function createDeck(){
             }
         }
     }
+    deckCur.push("4D","4D","4D","4D","4E","4E","4E","4E");
+
     console.log("Deck Created");
 }
 
-// Ensure the DOM is fully loaded before running the main function
 document.addEventListener("DOMContentLoaded", init);
