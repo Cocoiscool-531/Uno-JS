@@ -15,14 +15,15 @@ Simple JavaScript project to run UNO on github pages.
 
 Deck system
 Card Dealing
+Card Playing
+Discard and Deck piles
 
 **Working On:**
 
-Card Playing
+dead inside
 
 **Coming Soon:**
 
-Discard and Deck piles
 Cards Doing Things
 Online Play
 AI Opponent
