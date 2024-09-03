@@ -25,7 +25,7 @@ function shuffle(array) {
 function refreshHand(){
     document.getElementById("demo").innerHTML = hand.join(", ") + ":" + discard;
     for (let i = 0; i < 15; i++) {
-        document.getElementById("hand"+i).src = "/Web-Games/Uno/media/img/" + hand[i-1] + ".png";
+        document.getElementById("hand"+i).src = "/Web-Games/Uno/media/img/" + hand[i] + ".png";
     }
 }
 
@@ -52,13 +52,11 @@ function init(){
     refreshHand();
 }
 
-// Ensure the DOM is fully loaded before running the main function
-document.addEventListener("DOMContentLoaded", init);
-
 function createDeck(){
     for(let i = 0; i < 4; i++){
         deckCur.push("4D", "4E");
     }
+    
     document.getElementById("demo").innerHTML = "Creating deck...";
     for(let i = 0; i < 4; i++){
         for(let j = 0; j < 13; j++){
@@ -72,3 +70,6 @@ function createDeck(){
     }
     document.getElementById("demo").innerHTML = "Deck Created";
 }
+
+// Ensure the DOM is fully loaded before running the main function
+document.addEventListener("DOMContentLoaded", init);
