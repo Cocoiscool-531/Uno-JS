@@ -31,7 +31,7 @@ function refreshHand(){
 
 function playCard(handIndex){
     if(document.getElementById("hand"+handIndex).src != "/Uno/media/img/undefined.png"){
-        discard = hand.splice(handIndex, 1);
+        discard = hand.splice(handIndex, 1)[0];
         refreshHand();
     }
 }
@@ -44,7 +44,7 @@ function init(){
     document.getElementById("demo").innerHTML = deckCur.join(", ");
     
     // Deal 7 cards into the hand
-    for (let i = 1; i < 8; i++) {
+    for (let i = 0; i < 7; i++) {
         hand.push(deckCur.pop());
         // Make sure the image paths are correct
     }
