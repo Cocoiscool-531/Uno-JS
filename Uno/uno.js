@@ -13,11 +13,9 @@ function shuffle(array) {
   // While there remain elements to shuffle...
   while (currentIndex != 0) {
 
-    // Pick a remaining element...
     let randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
-    // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex], array[currentIndex]];
   }
@@ -25,12 +23,14 @@ function shuffle(array) {
 function refreshHand(){
     document.getElementById("demo").innerHTML = hand.join(", ") + ":" + discard;
     for (let i = 0; i < 15; i++) {
-        document.getElementById("hand"+i).src = "/Web-Games/Uno/media/img/" + hand[i] + ".png";
+        document.getElementById("hand"+i).src = "Uno/media/img/" + hand[i] + ".png";
     }
 }
 
 function playCard(handIndex){
+    console.warn("playCard init card at index " + handIndex);
     if(document.getElementById("hand"+handIndex).src != "/Uno/media/img/undefined.png"){
+        console.warn("played card at index " + handIndex);
         discard = hand.splice(handIndex, 1)[0];
         refreshHand();
     }
@@ -40,13 +40,11 @@ function init(){
     createDeck();
     shuffle(deckCur);
     
-    // Update the demo element with shuffled deck
     document.getElementById("demo").innerHTML = deckCur.join(", ");
     
-    // Deal 7 cards into the hand
+    console.log("Dealing Hand");
     for (let i = 0; i < 7; i++) {
         hand.push(deckCur.pop());
-        // Make sure the image paths are correct
     }
     discard = deckCur.pop();
     refreshHand();
@@ -57,7 +55,7 @@ function createDeck(){
         deckCur.push("4D", "4E");
     }
     
-    document.getElementById("demo").innerHTML = "Creating deck...";
+    console.log("Deck Creating");
     for(let i = 0; i < 4; i++){
         for(let j = 0; j < 13; j++){
             for(let k = 0; k < 2; k++){
@@ -68,7 +66,7 @@ function createDeck(){
             }
         }
     }
-    document.getElementById("demo").innerHTML = "Deck Created";
+    console.log("Deck Created");
 }
 
 // Ensure the DOM is fully loaded before running the main function
