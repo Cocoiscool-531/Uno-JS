@@ -25,12 +25,12 @@ function shuffle(array) {
 function refreshHand(){
     document.getElementById("demo").innerHTML = hand.join(", ") + ":" + discard;
     for (let i = 1; i < 8; i++) {
-        document.getElementById("hand"+i).src = "/Uno/media/img/" + hand[i-1] + ".png";
+        document.getElementById("hand"+i).src = "/Web-Games/Uno/media/img/" + hand[i-1] + ".png";
     }
 }
 
 function playCard(handIndex){
-    if(document.getElementById("hand"+handIndex).src != "/Uno/media/img/undefined.png"){
+    if(document.getElementById("hand"+handIndex).src != "/Web-Games/Uno/media/img/undefined.png"){
         discard = hand.splice(handIndex, 1);
         refreshHand();
     }
