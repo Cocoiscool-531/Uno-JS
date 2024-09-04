@@ -68,7 +68,7 @@ function playCard(handIndex){
         handIndex < hand.length &&
         currentCard.charAt(0) == discardColor ||
         currentCard.charAt(0) == 4 ||
-        currentCard.charAt(1) == hexAbc.indexOf(discardNumber)
+        currentCard.charAt(1) == hexAbc[discardNumber]
     ){
         discard = hand.splice(handIndex, 1)[0];
         refreshHand();
