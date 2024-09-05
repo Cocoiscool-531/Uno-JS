@@ -4,9 +4,12 @@ const colors = ["Red", "Yellow", "Blue", "Green", "Wild"]
 const deckCur = [];
 const deckStd = [];
 const hand = [];
+const player = p;
+
 let discard = "";
 let discardColor;
 let discardNumber;
+
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 function shuffle(array) {
