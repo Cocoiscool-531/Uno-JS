@@ -1,5 +1,24 @@
 <body>
-    <title>50 States Quiz</title>  
-    <h1>States Quiz</h1>
-    <input type="text" id="answer" placeholder="State Name"></input>
+    <title id="title">States Quiz</title>  
+    <h1 id="header">States Quiz</h1>
 </body>
+<div id="startScreen">
+    <button onclick="init();">Start All</button>
+    <button onclick="init();">Start Audio</button>
+    <button onclick="init();">Start Map</button>
+</div>
+<div id="quizAudio">
+    <h2>What is this state <span id="state"></span>?</h2>
+    <audio id="quizAudioPlay" src="audio_file.mp3"></audio>
+    <input type="text" id="answerAudio" placeholder="State Name"></input>
+    <button id="submit">Submit</button>
+    <button id="next" style="display:none">Next</button>
+    <button id="next">Next</button>
+</div>
+<div id="quizMap">
+    <h2>What is this state <span id="state"></span>?</h2>
+    <img id="quizMap" src="shape_file.png"></img>
+    <input type="text" id="answerShape" placeholder="State Name"></input>
+    <button id="submit">Submit</button>
+    <button id="next">Next</button>
+</div>
