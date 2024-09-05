@@ -108,7 +108,7 @@ function createDeck(){
             }
         }
     }
-    deckCur.push("4D","4D","4D","4D","4E","4E","4E","4E");
+    //deckCur.push("4D","4D","4D","4D","4E","4E","4E","4E");
 
     console.log("Deck Created");
 }
