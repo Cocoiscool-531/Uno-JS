@@ -1,4 +1,3 @@
-<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,7 +5,7 @@
 
 <form>
 <fieldset>
-  <legend>Choose A Player></legend>
+  <legend>Choose A Player</legend>
 <div>
   <input type="radio" id="player1" name="player" value=1 checked />
   <label for="player1">Player 1</label>
@@ -21,3 +20,27 @@
 </div>
 </fieldset>
 </form>
+
+<pre id="log"></pre>
+
+<script>
+const form = document.querySelector("form");
+const log = document.querySelector("#log");
+
+form.addEventListener(
+  "submit",
+  (event) => {
+    const data = new FormData(form);
+    let output = "";
+    for (const entry of data) {
+      output = `${output}${entry[0]}=${entry[1]}\r`;
+    }
+
+    log.innerText = output;
+    window.location.href += "play?player=" + data.get("player");
+    
+    event.preventDefault();
+  },
+  false,
+);
+</script>
