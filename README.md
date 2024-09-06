@@ -15,8 +15,11 @@ Simple JavaScript project to run UNO on github pages.
 **Currenty Functional:**
 
 Deck system
+
 Card Dealing
+
 Card Playing
+
 Discard and Deck piles
 
 **Working On:**
@@ -34,7 +37,9 @@ More Decks
 [Play here!](https://cocoiscool-531.github.io/Web-Games/StatesQuiz/)
 
 **Currenty Functional:**
+
 N/A
+
 **Working On:**
 
 **Coming Soon:**
@@ -46,7 +51,9 @@ N/A
 [Play here!](https://cocoiscool-531.github.io/Web-Games/Tetris/)
 
 **Currenty Functional:**
+
 N/A
+
 **Working On:**
 
 **Coming Soon:**
