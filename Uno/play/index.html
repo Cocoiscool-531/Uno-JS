@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uno</title>
+
+    <img>
+
+    <style>
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 10px; /* Adjust the gap as needed */
+            justify-content: left;
+        }
+        .card {
+            height: 300px;
+            width: auto;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="header">This message should not be possible to see.</p>
+    <button onclick="drawCard()" style="position: absolute; top: 0; left: 50%;">Draw Card</button>
+    <button onclick="endGame()" style="position: absolute; top: 0; left: 0;">End Game</button>
+
+
+    <div class="image-container" id="imageContainer"></div>
+    <img id="discardImg" style="position: absolute; top: 8%; left: 75%; transform: translateX(-50%);" src="../media/img/undefined.png">
+
+
+    <script src="uno.js"></script>
+</body>
+</html>
